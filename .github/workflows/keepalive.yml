@@ -1,1 +1,16 @@
+name: Keep Koyeb Alive
 
+on:
+  schedule:
+    - cron: "*/20 * * * *"
+  workflow_dispatch:
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Keep Service Alive
+        run: |
+          curl -L -A "Mozilla/5.0" \
+          https://collective-amil-zmc-c97d6c54.koyeb.app || true
